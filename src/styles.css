@@ -1,0 +1,149 @@
+:root {
+  --bg: #f4f5f9;
+  --card: #ffffff;
+  --text: #1c2033;
+  --muted: #6b7087;
+  --border: #e3e5ee;
+  --primary: #4f46e5;
+  --primary-dark: #4338ca;
+  --danger: #dc2626;
+  --success: #16a34a;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2 { margin: 0 0 4px; }
+.muted { color: var(--muted); margin: 0; font-size: 14px; }
+
+.center-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 3px rgba(20, 24, 50, 0.06);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  flex: 1;
+}
+
+input, textarea {
+  font: inherit;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+input:focus, textarea:focus {
+  outline: 2px solid rgba(79, 70, 229, 0.35);
+  border-color: var(--primary);
+}
+
+.field-error { color: var(--danger); font-size: 12px; font-weight: 400; }
+
+.btn {
+  font: inherit;
+  font-weight: 500;
+  padding: 9px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  cursor: pointer;
+}
+.btn:hover { background: #f1f2f8; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn.primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+.btn.primary:hover { background: var(--primary-dark); }
+.btn.small { padding: 5px 10px; font-size: 13px; }
+.btn.danger { color: var(--danger); border-color: #f3c4c4; }
+.btn.danger:hover { background: #fdecec; }
+.btn.danger.solid { background: var(--danger); border-color: var(--danger); color: #fff; }
+.btn.danger.solid:hover { background: #b91c1c; }
+
+.link {
+  background: none; border: none; padding: 0;
+  color: var(--primary); cursor: pointer; font: inherit; font-weight: 600;
+}
+.switch { text-align: center; margin: 0; font-size: 14px; color: var(--muted); }
+
+.alert {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.auth-card .alert, .modal .alert { margin-bottom: 0; }
+.alert.error { background: #fdecec; color: #991b1b; border: 1px solid #f6caca; }
+.alert.success { background: #e8f7ee; color: #166534; border: 1px solid #bfe6cd; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.toolbar { display: flex; gap: 12px; margin-bottom: 14px; }
+.search { flex: 1; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); background: #fafbfd; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #fafbff; }
+.num { text-align: right; white-space: nowrap; }
+.desc { color: var(--muted); max-width: 280px; }
+.row-actions { display: flex; gap: 6px; justify-content: flex-end; white-space: nowrap; }
+.empty { padding: 40px; text-align: center; color: var(--muted); margin: 0; }
+
+.modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(20, 24, 50, 0.45);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px; z-index: 10;
+}
+.modal {
+  width: 100%; max-width: 480px; padding: 24px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.small-modal { max-width: 400px; }
+.small-modal p { margin: 0; }
+.row { display: flex; gap: 12px; }
+.actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }
+
+@media (max-width: 600px) {
+  .toolbar { flex-direction: column; }
+  .row { flex-direction: column; }
+}
